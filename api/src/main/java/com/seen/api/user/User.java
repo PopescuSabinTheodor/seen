@@ -1,4 +1,4 @@
-package com.seen.api.entity;
+package com.seen.api.user;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,16 +11,18 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Entity
-public class UserDetails {
-  
+public class User {
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-
-  private String userId;
-
-  private String createdAt;
-
-  private String countryCode;
+  
+  private String firstName;
+  
+  private String lastName;
+  
+  private String email;
+  
+  private String password;
 
 }

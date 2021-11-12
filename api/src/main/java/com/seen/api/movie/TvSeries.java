@@ -1,4 +1,4 @@
-package com.seen.api.entity;
+package com.seen.api.movie;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,28 +11,30 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Entity
-public class TvSeriesEpisode {
+public class TvSeries {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
-
-  private Long TvSeriesId;
-
-  private Integer season;
-  
-  private Integer episode;
   
   private String title;
   
-  private String duration;
+  private String genre;
   
-  private String description;
+  private String releaseDate;
+  
+  private Integer noOfSeasons;
+  
+  private Integer noOfEpisodes;
   
   private String rating;
   
   private String ratingImdb;
   
   private String ratingRottenTomatoes;
-
+  
+  private String parentalControl;
+  
+  private String description;
+  
 }
