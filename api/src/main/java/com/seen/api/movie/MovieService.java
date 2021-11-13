@@ -16,4 +16,8 @@ public class MovieService {
   public Page<Movie> searchMovieByTitle(String title, Pageable pageable) {
     return movieRepository.findAllByTitle(title, pageable);
   }
+
+  public Movie saveMovie(Movie movie) {
+    return movieRepository.save(movie);
+  }
 }

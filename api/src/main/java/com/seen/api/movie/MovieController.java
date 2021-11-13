@@ -1,9 +1,12 @@
 package com.seen.api.movie;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,9 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class MovieController {
   
   private final MovieService movieService;
+  private final MovieConverter movieConverter;
 
-  public MovieController(MovieService movieService) {
+  public MovieController(MovieService movieService,  MovieConverter movieConverter) {
     this.movieService = movieService;
+    this.movieConverter = movieConverter;
   }
 
   /**
@@ -29,4 +34,16 @@ public class MovieController {
         Pageable pageable = PageRequest.of(page, size);
     return movieService.searchMovieByTitle(title, pageable);
   }
+
+  @PostMapping("/api/movie/save")
+  public Movie addMovie(@RequestBody MovieDto movieDTO) {
+
+    Movie movie = movieConverter.toMovie(movieDTO);
+
+    System.out.println("Movie: " + movie.toString());
+    return null;
+
+  }
+
+
 }
