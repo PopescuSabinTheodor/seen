@@ -16,6 +16,6 @@ public class ConfigurerAdapter extends WebSecurityConfigurerAdapter {
 	
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.authorizeRequests().antMatchers("/home", "/api/**", "/api/movie/**").permitAll().anyRequest().authenticated().and().csrf().disable();
+    http.authorizeRequests().antMatchers("/home", "/api/**", "/api/movie/**", "/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**").permitAll().anyRequest().authenticated().and().csrf().disable();
   }
 }
