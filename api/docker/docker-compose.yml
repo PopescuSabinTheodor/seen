@@ -25,7 +25,7 @@ services:
       PMA_ARBITRARY: 1
     restart: always
     ports:
-      - 80:80
+      - 9000:80
     depends_on:
       - mysql
        
