@@ -41,4 +41,25 @@ public class MovieController {
   public void deleteOrder(@RequestParam(value = "id") Long movieId) {
     movieService.deleteMovie(movieId);
   }
+
+  @PutMapping("/api/movie/edit")
+  public Movie editMovie(@RequestParam(value= "id") Long movieId, @RequestBody MovieDto movieDto) {
+    Movie movie = movieConverter.toMovie(movieDto);
+    if (movieService.findMovieById(movieId).isPresent()) {
+      Movie existingMovie = movieService.findMovieById(movieId).get();
+
+      existingMovie.setTitle(movieDto.getTitle());
+      existingMovie.setDescription(movieDto.getDescription());
+      existingMovie.setDuration(movieDto.getDuration());
+      existingMovie.setReleaseDate(movieDto.getReleaseDate());
+      existingMovie.setGenre(movieDto.getGenre());
+      existingMovie.setRating(movieDto.getRating());
+      existingMovie.setRatingImdb(movieDto.getRatingImdb());
+      existingMovie.setRatingRottenTomatoes(movieDto.getRatingRottenTomatoes());
+      existingMovie.setParentalControl(movieDto.getParentalControl());
+
+      movieService.saveMovie(existingMovie);
+    }
+    return movie;
+  }
 }
