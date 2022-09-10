@@ -40,8 +40,8 @@ public class MovieController {
 
     Movie movie = movieConverter.toMovie(movieDTO);
 
-    System.out.println("Movie: " + movie.toString());
-    return null;
+    return movieService.saveMovie(movie);
+
 
   }
 

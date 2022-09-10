@@ -8,11 +8,13 @@ import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @Entity
 @Builder
+@NoArgsConstructor
 public class Movie {
   
   @Id
