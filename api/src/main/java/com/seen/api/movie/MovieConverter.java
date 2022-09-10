@@ -10,6 +10,11 @@ public class MovieConverter {
                 .title(movieDto.getTitle())
                 .description(movieDto.getDescription())
                 .releaseDate(movieDto.getReleaseDate())
+                .genre(movieDto.getGenre())
+                .rating(movieDto.getRating())
+                .ratingImdb(movieDto.getRatingImdb())
+                .ratingRottenTomatoes(movieDto.getRatingRottenTomatoes())
+                .parentalControl(movieDto.getParentalControl())
                 .build();
     }
 
