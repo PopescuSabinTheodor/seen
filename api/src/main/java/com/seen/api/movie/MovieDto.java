@@ -1,23 +1,35 @@
 package com.seen.api.movie;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 public class MovieDto {
-  private String title;
-  
-  private String description;
-  
-  private String duration;
-  
-  private String releaseDate;
-  
-  private String genre;
-  
-  private String rating;
-  
-  private String ratingImdb;
-  
-  private String ratingRottenTomatoes;
-  
-  private String parentalControl;
+
+    @Schema(example= "Game of Thrones", description = "Movie title")
+    private String title;
+
+    @Schema(example= "As good as a dog poop", description = "Movie description")
+    private String description;
+
+    @Schema(example= "3h", description = "Movie duration")
+    private String duration;
+
+    @Schema(example= "19.05.2018", description = "Movie release date")
+    private String releaseDate;
+
+    @Schema(example= "SF", description = "Movie genre")
+    private String genre;
+
+    @Schema(example= "8.4", description = "Movie rating")
+    private String rating;
+
+    @Schema(example= "9.5", description = "Movie Imdb rating")
+    private String ratingImdb;
+
+    @Schema(example= "9.0", description = "Movie Rotten Tomatoes rating")
+    private String ratingRottenTomatoes;
+
+    @Schema(example= "15+", description = "Movie parental control")
+    private String parentalControl;
 
     public MovieDto(String title, String description, String duration, String releaseDate, String genre, String rating, String ratingImdb, String ratingRottenTomatoes, String parentalControl) {
         this.title = title;
