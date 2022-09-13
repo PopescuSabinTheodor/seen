@@ -1,4 +1,4 @@
-package com.seen.api.movie;
+package com.seen.api.tvseries;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,10 +7,12 @@ import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @Entity
+@NoArgsConstructor
 public class TvSeriesEpisode {
 
   @Id
