@@ -68,23 +68,7 @@ public class MovieController {
           @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
   })
   @PutMapping(value = "/api/movie/{id}/edit", produces = MediaType.APPLICATION_JSON_VALUE)
-  public Movie editMovie(@PathVariable(value = "id") Long movieId, @RequestBody MovieDto movieDto) {
-    Movie movie = movieConverter.toMovie(movieDto);
-    if (movieService.findMovieById(movieId).isPresent()) {
-      Movie existingMovie = movieService.findMovieById(movieId).get();
-
-      existingMovie.setTitle(movieDto.getTitle());
-      existingMovie.setDescription(movieDto.getDescription());
-      existingMovie.setDuration(movieDto.getDuration());
-      existingMovie.setReleaseDate(movieDto.getReleaseDate());
-      existingMovie.setGenre(movieDto.getGenre());
-      existingMovie.setRating(movieDto.getRating());
-      existingMovie.setRatingImdb(movieDto.getRatingImdb());
-      existingMovie.setRatingRottenTomatoes(movieDto.getRatingRottenTomatoes());
-      existingMovie.setParentalControl(movieDto.getParentalControl());
-
-      movieService.saveMovie(existingMovie);
-    }
-    return movie;
+  public void editMovie(@PathVariable(value = "id") Long movieId, @RequestBody MovieDto movieDto) {
+      movieService.updateMovie(movieDto, movieId);
   }
 }
