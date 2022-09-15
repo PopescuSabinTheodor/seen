@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MovieRepository extends CrudRepository<Movie, Long> {
-  
   Page<Movie> findAllByTitle(String title, Pageable pageable);
+
 }
