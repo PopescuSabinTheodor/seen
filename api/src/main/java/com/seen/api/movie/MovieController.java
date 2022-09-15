@@ -53,11 +53,11 @@ public class MovieController {
           @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
           @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
   })
-  @DeleteMapping(value = "/api/movie/delete")
-  public void deleteOrder(@RequestParam(value = "id") Long movieId) {
+  @DeleteMapping(value = "/api/movie/{id}/delete")
+  public void deleteOrder(@PathVariable(value = "id") Long movieId) {
     movieService.deleteMovie(movieId);
   }
-  
+
   @ApiOperation(value = "Edit a movie", response = ResponseEntity.class)
   @ApiResponses(value = {
           @ApiResponse(responseCode = "200", description = "Record updated"),
@@ -67,8 +67,8 @@ public class MovieController {
           @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
           @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
   })
-  @PutMapping(value = "/api/movie/edit", produces = MediaType.APPLICATION_JSON_VALUE)
-  public Movie editMovie(@RequestParam(value= "id") Long movieId, @RequestBody MovieDto movieDto) {
+  @PutMapping(value = "/api/movie/{id}/edit", produces = MediaType.APPLICATION_JSON_VALUE)
+  public Movie editMovie(@PathVariable(value = "id") Long movieId, @RequestBody MovieDto movieDto) {
     Movie movie = movieConverter.toMovie(movieDto);
     if (movieService.findMovieById(movieId).isPresent()) {
       Movie existingMovie = movieService.findMovieById(movieId).get();
