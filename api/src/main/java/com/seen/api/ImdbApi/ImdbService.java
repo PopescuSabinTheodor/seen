@@ -1,29 +1,30 @@
 package com.seen.api.ImdbApi;
 
-import org.apache.tomcat.util.codec.binary.Base64;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.seen.api.errorHandling.RestExceptionHandler;
+import com.seen.api.movie.Movie;
+import com.seen.api.movie.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
+import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 
 @Service
-public class ImdbService {
-
-    private static final String APIKey = "5f530ddaa2msh3a4c126c7b75b34p1ac5d5jsn51d7b3983b66";
-    private static final String findMovieByTitleURL = "https://imdb8.p.rapidapi.com/title/v2/find?title=";
-    private static final String headerName = "X-RapidAPI-Key";
+public class ImdbService implements ImdbConstants{
 
     @Autowired
     RestTemplate template;
+    @Autowired
+    MovieRepository movieRepository;
+    @Autowired
+    RestExceptionHandler restExceptionHandler;
 
     public ResponseEntity<String> findMovieByTitle(String movieTitle) {
         HttpHeaders headers = new HttpHeaders();
@@ -40,5 +41,19 @@ public class ImdbService {
                 );
 
         return response;
+    }
+
+    public ResponseEntity<Object> userSearchMovieByTitle(String movieTitle) {
+        Optional<Movie> movie = movieRepository.findByTitle(movieTitle);
+        if (movie.isPresent()) {
+            Movie searchedMovie = movie.get();
+
+            return ResponseEntity.ok()
+                    .body(searchedMovie.toString());
+        } else {
+            //findMovieByTitle(movieTitle);
+            String movieNotFound = "Movie was not found for parameters {title=" + movieTitle + "}";
+            return restExceptionHandler.handleEntityNotFound(movieNotFound);
+        }
     }
 }
