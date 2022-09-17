@@ -31,4 +31,22 @@ public class MovieService {
     movieRepository.deleteById(id);
   }
 
+  public void updateMovie(MovieDto movieDto, Long movieId) {
+    Optional<Movie> movieOptional = movieRepository.findById(movieId);
+    if (movieOptional.isPresent()) {
+      Movie updatedMovie = movieOptional.get();
+
+      updatedMovie.setTitle(movieDto.getTitle());
+      updatedMovie.setDescription(movieDto.getDescription());
+      updatedMovie.setDuration(movieDto.getDuration());
+      updatedMovie.setReleaseDate(movieDto.getReleaseDate());
+      updatedMovie.setGenre(movieDto.getGenre());
+      updatedMovie.setRating(movieDto.getRating());
+      updatedMovie.setRatingImdb(movieDto.getRatingImdb());
+      updatedMovie.setRatingRottenTomatoes(movieDto.getRatingRottenTomatoes());
+      updatedMovie.setParentalControl(movieDto.getParentalControl());
+
+      movieRepository.save(updatedMovie);
+    }
+  }
 }
