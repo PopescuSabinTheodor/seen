@@ -1,4 +1,4 @@
-package com.seen.api.movie;
+package com.seen.api.tvseries;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
