@@ -1,6 +1,5 @@
 package com.seen.api.ImdbApi;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.seen.api.errorHandling.RestExceptionHandler;
 import com.seen.api.movie.Movie;
 import com.seen.api.movie.MovieRepository;
@@ -10,14 +9,14 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
 @Service
-public class ImdbService implements ImdbConstants{
+public class ImdbService {
+
+    ImdbConstants constants;
 
     @Autowired
     RestTemplate template;
@@ -28,13 +27,13 @@ public class ImdbService implements ImdbConstants{
 
     public ResponseEntity<String> findMovieByTitle(String movieTitle) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add(headerName, APIKey);
+        headers.add(constants.headerName, constants.APIKey);
 
         HttpEntity<Object> entity = new HttpEntity<Object>(headers);
 
         ResponseEntity<String> response =
                 template.exchange(
-                        findMovieByTitleURL + movieTitle,
+                        constants.findMovieByTitleURL + movieTitle,
                         HttpMethod.GET,
                         entity,
                         String.class
