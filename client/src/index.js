@@ -5,7 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import { hot } from "react-hot-loader/root";
 
 const render = (Component) =>
-  ReactDOM.render(<Component />, document.getElementById("root"));
+    ReactDOM.render(<Component />, document.getElementById("root"));
 
 render(hot(App));
 
@@ -13,3 +13,4 @@ render(hot(App));
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
