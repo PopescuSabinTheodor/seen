@@ -1,0 +1,36 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+
+	// List of extensions which should be recommended for users of this workspace.
+	"recommendations": [
+		"steoates.autoimport",
+		"michelemelluso.code-beautifier",
+		"dsznajder.es7-react-js-snippets",
+		"eamodio.gitlens",
+		"wix.vscode-import-cost",
+		"christian-kohler.path-intellisense",
+		"christian-kohler.npm-intellisense",
+		"esbenp.prettier-vscode",
+		"2gua.rainbow-brackets",
+		"xabikos.ReactSnippets",
+		"discountry.react-redux-react-router-snippets",
+		"infeng.vscode-react-typescript",
+		"jawandarajbir.react-vscode-extension-pack",
+		"planbcoding.vscode-react-refactor",
+		"burkeholland.simple-react-snippets",
+		"oderwat.indent-rainbow",
+		"shardulm94.trailing-spaces",
+		"GitHub.vscode-pull-request-github"
+	],
+	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+	"unwantedRecommendations": [
+		"googlecloudtools.cloudcode",
+		"ms-kubernetes-tools.vscode-kubernetes-tools",
+		"vscodevim.vim",
+		"felipecaputo.git-project-manager",
+		"donjayamanne.githistory",
+		"ms-edgedevtools.vscode-edge-devtools",
+		"firefox-devtools.vscode-firefox-debug"
+	]
+}
