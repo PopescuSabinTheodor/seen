@@ -1,18 +1,10 @@
 package com.seen.api.ImdbApi;
 
-import org.apache.tomcat.util.codec.binary.Base64;
+import com.seen.api.error.exception.MovieNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 
 @Service
@@ -29,7 +21,7 @@ public class ImdbService {
         HttpHeaders headers = new HttpHeaders();
         headers.add(headerName, APIKey);
 
-        HttpEntity<Object> entity = new HttpEntity<Object>(headers);
+        HttpEntity<Object> entity = new HttpEntity<>(headers);
 
         ResponseEntity<String> response =
                 template.exchange(
