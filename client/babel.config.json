@@ -6,6 +6,24 @@
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
     "@babel/plugin-proposal-class-properties",
-    "react-hot-loader/babel"
+    "react-hot-loader/babel",
+    [
+      "babel-plugin-import",
+      {
+        "libraryName": "@material-ui/core",
+        "libraryDirectory": "components",  // default: lib
+        "camel2DashComponentName": false  // default: true
+      },
+      "core"
+    ],
+    [
+      "babel-plugin-import",
+      {
+        "libraryName": "@material-ui/icons",
+        "libraryDirectory": "components",  // default: lib
+        "camel2DashComponentName": false  // default: true
+      },
+      "icons"
+    ]
   ]
 }
