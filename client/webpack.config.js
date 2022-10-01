@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const path = require('path');
 
 module.exports = {
@@ -13,7 +14,8 @@ module.exports = {
     },
     resolve: {
         alias: {
-            "react-dom": "@hot-loader/react-dom",
+            'react-dom': '@hot-loader/react-dom',
+            '@mui/styled-engine': '@mui/styled-engine-sc'
         },
     },
     plugins: [
@@ -21,7 +23,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve( __dirname, 'public/index.html' ),
             filename: 'index.html'
-        })
+        }),
     ],
     devServer: {
         open: true,
