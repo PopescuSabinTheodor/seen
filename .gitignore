@@ -2,3 +2,17 @@
 client/node_modules/
 
 client/dist/
+client/coverage/clover.xml
+client/coverage/coverage-final.json
+client/coverage/lcov.info
+client/coverage/lcov-report/App.js.html
+client/coverage/lcov-report/base.css
+client/coverage/lcov-report/block-navigation.js
+client/coverage/lcov-report/favicon.png
+client/coverage/lcov-report/index.html
+client/coverage/lcov-report/index.js.html
+client/coverage/lcov-report/prettify.css
+client/coverage/lcov-report/prettify.js
+client/coverage/lcov-report/reportWebVitals.js.html
+client/coverage/lcov-report/sort-arrow-sprite.png
+client/coverage/lcov-report/sorter.js
