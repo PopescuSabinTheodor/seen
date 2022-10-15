@@ -15,7 +15,7 @@ module.exports = {
     resolve: {
         alias: {
             'react-dom': '@hot-loader/react-dom',
-            '@mui/styled-engine': '@mui/styled-engine-sc'
+            '@mui/styled-engine': '@mui/styled-engine-sc',
         },
     },
     plugins: [
