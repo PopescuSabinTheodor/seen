@@ -4,8 +4,5 @@ module.exports = {
     coverageDirectory: 'coverage',
     testEnvironment: 'jsdom',
     setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
-    moduleNameMapper: {
-        '^@mui/styled-engine$': '<rootDir>/node_modules/@mui/styled-engine-sc',
-    },
 };
 
