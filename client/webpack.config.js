@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const path = require('path');
 
@@ -23,6 +24,7 @@ module.exports = {
             template: path.resolve( __dirname, 'public/index.html' ),
             filename: 'index.html'
         }),
+        new BundleAnalyzerPlugin()
     ],
     devServer: {
         open: true,
@@ -38,7 +40,7 @@ module.exports = {
         },
         historyApiFallback: true,
     },
-    devtool: 'inline-source-map',
+    // devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -61,7 +63,8 @@ module.exports = {
                     }
                 }
                 ]
-            }
+            },
         ]
     },
+
 };
