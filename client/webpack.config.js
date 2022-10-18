@@ -38,7 +38,7 @@ module.exports = {
         },
         historyApiFallback: true,
     },
-    devtool: 'inline-source-map',
+    // devtool: 'inline-source-map',
     module: {
         rules: [
             {
@@ -61,7 +61,8 @@ module.exports = {
                     }
                 }
                 ]
-            }
+            },
         ]
     },
+
 };
