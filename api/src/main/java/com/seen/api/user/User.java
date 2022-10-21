@@ -1,13 +1,13 @@
 package com.seen.api.user;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -26,5 +26,15 @@ public class User {
   private String email;
   
   private String password;
+
+  private List<String> genders;
+
+  @Temporal(TemporalType.TIMESTAMP)
+  @Column(name = "date_of_birth")
+  private Date dateOfBirth;
+
+  @Lob
+  @Basic(fetch = FetchType.LAZY)
+  private byte[] profilePicture;
 
 }
