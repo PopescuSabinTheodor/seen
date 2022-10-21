@@ -30,7 +30,7 @@ public class User {
   
   private String password;
 
-  private List<String> genders;
+  private String genders;
 
   @Temporal(TemporalType.TIMESTAMP)
   @Column(name = "date_of_birth")
@@ -51,11 +51,11 @@ public class User {
 
   @OneToMany(fetch =  FetchType.LAZY)
   @JoinColumn(name = "post_id")
-  private Post post;
+  private List<Post> post;
 
   @OneToMany(fetch = FetchType.LAZY)
   @JoinColumn(name = "comment_id")
-  private Comment comment;
+  private List<Comment> comment;
 
   private int reviews;
 
