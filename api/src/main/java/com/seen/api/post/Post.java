@@ -1,26 +1,27 @@
-package com.seen.api.comment;
+package com.seen.api.post;
 
-import com.seen.api.post.Post;
+import com.seen.api.comment.Comment;
+import com.seen.api.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
-public class Comment {
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
     private String content;
+
+    private String description;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_post")
@@ -30,13 +31,13 @@ public class Comment {
 
     private int downVotes;
 
-    @ManyToOne
-    private Comment comment;
-
-    @OneToMany(mappedBy = "comment")
-    private List<Comment> replies;
+    private int shares;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
-    private Post post;
+    @JoinColumn(name = "post")
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post")
+    private Comment comment;
 }
