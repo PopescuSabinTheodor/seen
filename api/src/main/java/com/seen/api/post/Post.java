@@ -21,6 +21,8 @@ public class Post {
 
     private String content;
 
+    private String description;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "date_post")
     private Date datePost;
@@ -29,10 +31,10 @@ public class Post {
 
     private int downVotes;
 
-    private Long userId;
+    private int shares;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "post")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -1,5 +1,6 @@
 package com.seen.api.comment;
 
+import com.seen.api.post.Post;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,4 +35,8 @@ public class Comment {
 
     @OneToMany(mappedBy = "comment")
     private List<Comment> replies;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "post_id")
+    private Post post;
 }
